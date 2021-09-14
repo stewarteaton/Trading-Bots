@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <Title>
+            Binance Trader
+        </Title>
+    </head>
+
+    <body>
+        <h2>Test</h2>
+        <script>
+            // Create WebSocket connection.
+            const binanceSocket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+            console.log('Socket info '+binanceSocket);
+
+            // Make console.log object viewable in 
+            binanceSocket.onmessage = function (event) {
+                console.log(event.data)
+            }
+        </script>
+    </body>
+</html>
+
