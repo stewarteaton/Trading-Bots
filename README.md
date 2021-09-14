@@ -1,5 +1,5 @@
-<!-- Binance Websocket -->
-<h3>wss://stream.binance.com:9443</h3>
+<h2>Binance Websocket</h2>
+<ul><li>wss://stream.binance.com:9443</li></ul>
 <!-- Example trade stream btc/usdt -->
 wss://stream.binance.com:9443/ws/btcusdt@trade
 <!-- Example candlestick data -->
