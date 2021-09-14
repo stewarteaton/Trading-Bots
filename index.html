@@ -3,20 +3,29 @@
         <Title>
             Binance Trader
         </Title>
+        <script src='https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js'></script>
     </head>
 
     <body>
-        <h2>Test</h2>
+        <h2>Trades</h2>
+        <div id="trades"></div>
+        <div id="chart"></div>
+        <div id="settings"></div>
+
         <script>
             // Create WebSocket connection.
-            const binanceSocket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
-            console.log('Socket info '+binanceSocket);
+            // const binanceSocket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+
+            var tradeDiv = document.getElementById('trades');
 
             // Make console.log object viewable in 
-            binanceSocket.onmessage = function (event) {
-                console.log(event.data)
-            }
+            // binanceSocket.onmessage = function (event) {
+            //     console.log(event.data)
+            //     var messageObj = JSON.parse(event.data);
+            //     tradeDiv.append(messageObj.parse);
+            // }
         </script>
+        <script src="chart.js"></script>
     </body>
 </html>
 
