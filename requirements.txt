@@ -1,3 +1,5 @@
 # lightweightcharts
 python-binance
 config
+TA-Lib
+numpy

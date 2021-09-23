@@ -24,3 +24,6 @@
 
 <h3>To convert Unix timestamp from api data</h3>
 <ul><li>https://www.unixtimestamp.com/</li></ul>
+
+<h3>Technical Analysis Libraries</h3>
+<ul><li>TA-Lib: http://mrjbq7.github.io/ta-lib/</li></ul>
