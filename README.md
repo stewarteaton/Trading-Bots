@@ -12,3 +12,15 @@
 
 <h3>To save data stream set to file</h3>
 <ul><li>wscat -c wss://stream.binance.com:9443/ws/btcusdt@kline_5m | tee dataset.text</ul></li>
+
+<h3>Charting</h3>
+<h4>Using light weight charts from trading view: https://github.com/tradingview/lightweight-charts</h4>
+
+<h3>API</h3>
+<ul><li>https://python-binance.readthedocs.io/en/latest/</li></ul>
+
+<h3>Python write api data to csv for in sub for DB</h3>
+<ul><li>https://docs.python.org/3/library/csv.html</li></ul>
+
+<h3>To convert Unix timestamp from api data</h3>
+<ul><li>https://www.unixtimestamp.com/</li></ul>

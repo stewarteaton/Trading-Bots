@@ -1,0 +1,3 @@
+# lightweightcharts
+python-binance
+config
