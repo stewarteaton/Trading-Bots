@@ -25,7 +25,7 @@
 
             <form action='/buy' method="post">
                 <input type="text" id="quantity" name="quantity" placeholder="ex. 0.001"/>
-                <select id="symbol" name="symbo">
+                <select id="symbol" name="symbol">
                     {% for symbol in symbols %}
                         <option>
                             {{ symbol['symbol'] }}

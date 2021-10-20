@@ -5,3 +5,4 @@ TA-Lib
 numpy
 backtrader
 flask
+flask-cors

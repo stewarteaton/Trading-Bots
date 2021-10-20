@@ -1,4 +1,5 @@
 <h3>Binance Websocket</h2>
+<h5>https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams</h5>
 <ul><li>wss://stream.binance.com:9443</li></ul>
 
 <h3>Example trade stream btc/usdt</h3>
@@ -30,6 +31,7 @@
 
 <h3>Charting</h3>
 <h4>Using light weight charts from trading view: https://github.com/tradingview/lightweight-charts</h4>
+<ul><li>For dev, sometimes need to <b>Shift+Refresh</b> in chrome to reset browser code</li></ul>
 
 <h3>API</h3>
 <ul><li>https://python-binance.readthedocs.io/en/latest/</li></ul>
@@ -54,9 +56,12 @@
 
 * Debug Mode - automatically reload on changes
     > set FLASK_ENV=development
+    > export FLASK_DEBUG=1
 
 
 <h3>Jinja HTML Templating</h3>
 * https://jinja.palletsprojects.com/en/3.0.x/templates/
+
+
 
 
