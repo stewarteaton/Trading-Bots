@@ -3,3 +3,5 @@ python-binance
 config
 TA-Lib
 numpy
+backtrader
+flask

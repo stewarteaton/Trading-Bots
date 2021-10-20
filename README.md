@@ -5,10 +5,25 @@
 <ul><li>wss://stream.binance.com:9443/ws/btcusdt@trade</li></ul>
 
 <h3>Example candlestick data</h3>
-<ul><li>wss://stream.binance.com:9443/ws/btcusdt@kline_5m
+<ul><li>wss://stream.binance.com:9443/ws/btcusdt@kline_5m</li></ul>
 
-<h3>Example output: </h3>
-<ul><li>{"e":"kline","E":1631636735735,"s":"BTCUSDT","k":{"t":1631636700000,"T":1631636999999,"s":"BTCUSDT","i":"5m","f":1054217725,"L":1054218306,"o":"46686.15000000","c":"46673.53000000","h":"46686.15000000","l":"46668.45000000","v":"12.26168000","n":582,"x":false,"q":"572337.21655380","V":"3.29093000","Q":"153606.31592330","B":"0"}}</ul></li>
+<h3>get_klines response format: </h3>
+<ul><li>[
+    [
+        1499040000000,      # Open time
+        "0.01634790",       # Open
+        "0.80000000",       # High
+        "0.01575800",       # Low
+        "0.01577100",       # Close
+        "148976.11427815",  # Volume
+        1499644799999,      # Close time
+        "2434.19055334",    # Quote asset volume
+        308,                # Number of trades
+        "1756.87402397",    # Taker buy base asset volume
+        "28.46694368",      # Taker buy quote asset volume
+        "17928899.62484339" # Can be ignored
+    ]
+]</ul></li>
 
 <h3>To save data stream set to file</h3>
 <ul><li>wscat -c wss://stream.binance.com:9443/ws/btcusdt@kline_5m | tee dataset.text</ul></li>
@@ -27,3 +42,21 @@
 
 <h3>Technical Analysis Libraries</h3>
 <ul><li>TA-Lib: http://mrjbq7.github.io/ta-lib/</li></ul>
+
+
+---- BACKEND ----
+<h3>Flask</h3>
+* https://flask.palletsprojects.com/en/2.0.x/quickstart/#
+    Export environment variable in Terminal
+        > set FLASK_APP=app
+    Run Flask
+        > flask run
+
+* Debug Mode - automatically reload on changes
+    > set FLASK_ENV=development
+
+
+<h3>Jinja HTML Templating</h3>
+* https://jinja.palletsprojects.com/en/3.0.x/templates/
+
+

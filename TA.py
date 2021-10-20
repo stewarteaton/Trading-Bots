@@ -9,6 +9,7 @@ my_data = genfromtxt('30minCandle.csv', delimiter=',')
 # get closing prices for candles from 4th column 
 close = my_data[:,4]
 
+
 # print(close)
 
 # # creates random array
