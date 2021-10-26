@@ -30,8 +30,8 @@ chart = LightweightCharts.createChart(document.getElementById('chart'), {
 var candleSeries = chart.addCandlestickSeries({
   upColor: '#00ff00',
   downColor: '#ff0000',
-  borderDownColor: 'rgba(255, 144, 0, 1)',
-  borderUpColor: 'rgba(255, 144, 0, 1)',
+  borderDownColor: '#ff0000',
+  borderUpColor: '#00ff00',
   wickDownColor: 'rgba(255, 144, 0, 1)',
   wickUpColor: 'rgba(255, 144, 0, 1)',
 });

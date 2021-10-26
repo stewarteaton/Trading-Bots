@@ -63,5 +63,11 @@
 * https://jinja.palletsprojects.com/en/3.0.x/templates/
 
 
+---- Back Testing ---
+<h3>VectorBT</h3>
+* https://vectorbt.dev/ - python library for TA and backtesting with speed
+
+
+
 
 

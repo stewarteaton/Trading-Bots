@@ -4,5 +4,9 @@ config
 TA-Lib
 numpy
 backtrader
+vectorbt
 flask
 flask-cors
+backtrader
+pandas
+
