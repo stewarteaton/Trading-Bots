@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+<div class="container">
+    <!-- Top Row  -->
+    <div class="row mt-4 mb-4">
+        <div class="col-3">
+            <h2>Ethereum Price</h2>
+            $ {{ ether_price['last']|int }} USD
+        </div>
+        <div class="col-3">
+            <h2>24hr-Change</h2>
+            {{ ether_price['percentage'] }} %
+        </div>
+        <div class="col-3">
+            <h2>Gas Fee</h2>
+            {{ (eth.gas_price / 1000000000)|int }} Gwei
+        </div>
+    </div>
+    <div class="row">
+        <!-- Latest Blocks -->
+        <div class="col-6">
+            <h3>Latest Blocks</h3>
+            <table class="table table-striped">
+                {% for block in latest_blocks %}
+                <tr>
+                    <td>
+                        <h5>Block</h5>
+                        <a href='/block/{{ block.number }}'>{{ block.number }}</a>
+                        <p>{{ (current_time - block.timestamp)|int }} seconds ago</p>
+                    </td>
+                    <td>
+                        <h5>Miner</h5>
+                        <a href="/address?address={{ block.miner }}">
+                            <!-- If the miner address is present in our table, show the name, otherwise display miner address -->
+                            {% if block.miner.lower() in miners %}
+                                {{ miners[block.miner.lower()] }}
+                            {% else %}
+                                {{ block.miner.lower() }}
+                            {% endif %} 
+                        </a>
+                        <p> {{ block.transactions|length }} transactions </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- Latest Transactions  -->
+        <div class="col-6">
+            <h3>Latest Transactions</h3>
+            <table class="table table-striped">
+                <!-- loop through transactions list  -->
+                {% for transaction in latest_transactions %}
+                <tr class="row">
+                    <td>
+                        <h5>Tx Hash:</h5>
+                        <p>
+                            <a href="/tx/{{ transaction['hash'].hex() }}">{{ transaction['hash'].hex() }} </a>
+                        </p>
+                        <p>
+                            <strong>From: </strong>
+                            <a href="/address?address={{ transaction['from'] }}"> {{ transaction['from'] }} </a>
+                        </p>
+                        <p>
+                            <strong>To: </strong>
+                            <a href="/address?address={{ transaction['to'] }}">{{ transaction['to'] }} </a>
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+Homepage
+{{ ether_price }}
+<!-- Ether Price:
+{{ ether_price.last }}
+
+Details:
+{{ ether_price }}
+
+Latest Blocks:
+{{ latest_blocks }} -->
+
+{% endblock %}

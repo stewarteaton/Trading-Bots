@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+</br>
+<h4>Transaction hash: {{ hash }} </h4>
+</br>
+<table class='table table-striped'>
+    <tr>
+        <td>From: </td>
+        <td>
+            <a href="/address/{{ transaction.from }}">{{ transaction.from }}</a>
+        </td>
+    </tr>
+    <tr>
+        <td>To: </td>
+        <td>{{ transaction.to }}</td>
+    </tr>
+    <tr>
+        <td>Gas: </td>
+        <td>{{ transaction.gas }}</td>
+    </tr>
+    <tr>
+        <td>Gas Price: </td>
+        <td>{{ transaction.gasPrice }}</td>
+    </tr>
+</table>
+
+<!-- {{ transaction }} -->
+
+{% endblock %}

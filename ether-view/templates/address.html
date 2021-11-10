@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<div class="container">
+    <h3>Address: {{ address }}</h3>
+    <p><strong>Ether:</strong> {{ balance|round }}</p>
+    <p>
+        <strong>Balance: </strong>{{ (balance|float * ether_price['last'])|int }} $USD
+         <!-- - $({{ ether_price['last'] }} / ETH) -->
+    </p>
+</div>
+{% endblock %}
