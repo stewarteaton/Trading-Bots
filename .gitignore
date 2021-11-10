@@ -6,3 +6,11 @@ _pycache_
 ./binance-api/_pycache_
 .DS_Store
 ./binance-api/.DS_Store
+
+
+*.log
+*.pot
+*.pyc
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
