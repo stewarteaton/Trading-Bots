@@ -2,29 +2,22 @@
 <h5>https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams</h5>
 <ul><li>wss://stream.binance.com:9443</li></ul>
 
+<h3>Python-Binance Wrapper</h3>
+<ul><li>https://python-binance.readthedocs.io/en/latest/overview.html</li></ul>
+
+<h3>Binance Paper Trading Testnet</h3>
+<ul><li>https://testnet.binance.vision/</li></ul>
+<ul><li>Had to clone binance.client.py package and create binance.clientPaper.py with test url to use</ul></li>
+
+<h5>Python web-socket client</h5>
+<ul><li>https://github.com/websocket-client/websocket-client</li></ul>
+
 <h3>Example trade stream btc/usdt</h3>
 <ul><li>wss://stream.binance.com:9443/ws/btcusdt@trade</li></ul>
 
 <h3>Example candlestick data</h3>
 <ul><li>wss://stream.binance.com:9443/ws/btcusdt@kline_5m</li></ul>
 
-<h3>get_klines response format: </h3>
-<ul><li>[
-    [
-        1499040000000,      # Open time
-        "0.01634790",       # Open
-        "0.80000000",       # High
-        "0.01575800",       # Low
-        "0.01577100",       # Close
-        "148976.11427815",  # Volume
-        1499644799999,      # Close time
-        "2434.19055334",    # Quote asset volume
-        308,                # Number of trades
-        "1756.87402397",    # Taker buy base asset volume
-        "28.46694368",      # Taker buy quote asset volume
-        "17928899.62484339" # Can be ignored
-    ]
-]</ul></li>
 
 <h3>To save data stream set to file</h3>
 <ul><li>wscat -c wss://stream.binance.com:9443/ws/btcusdt@kline_5m | tee dataset.text</ul></li>
@@ -46,7 +39,8 @@
 <ul><li>TA-Lib: http://mrjbq7.github.io/ta-lib/</li></ul>
 
 
----- BACKEND ----
+<h1>Backend</h1>
+<hr>
 <h3>Flask</h3>
 * https://flask.palletsprojects.com/en/2.0.x/quickstart/#
     Export environment variable in Terminal
@@ -63,9 +57,14 @@
 * https://jinja.palletsprojects.com/en/3.0.x/templates/
 
 
----- Back Testing ---
+
+<h1>Back Testing</h1>
+<hr>
 <h3>VectorBT</h3>
 * https://vectorbt.dev/ - python library for TA and backtesting with speed
+
+
+
 
 
 

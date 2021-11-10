@@ -1,2 +1,8 @@
 config
 config.py
+./binance-api/config
+
+_pycache_
+./binance-api/_pycache_
+.DS_Store
+./binance-api/.DS_Store

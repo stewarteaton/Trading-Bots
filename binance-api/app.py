@@ -3,6 +3,7 @@ from flask_cors import CORS
 import config
 import csv
 from binance.client import Client
+from binance.clientPaper import ClientPaper
 from binance.enums import *
 
 
@@ -13,26 +14,29 @@ CORS(app)
 app.secret_key = b'alvvjlkjweoiru43lkv'
 
 
-client = Client(config.API_KEY, config.SECRET_KEY, tld='us')
+clientPaper = ClientPaper(config.API_KEY_PAPER, config.SECRET_KEY_PAPER, tld='us')
+clientReal = Client(config.API_KEY, config.SECRET_KEY, tld='us')
+
 
 @app.route("/")
 def index():
     title='Asset View'
 
-    account = client.get_account()
+    account = clientPaper.get_account()
     balances = account['balances']
 
-    exchange_info = client.get_exchange_info()
+    exchange_info = clientReal.get_exchange_info()
     symbols = exchange_info['symbols']
 
-    # print(balances)
+    # # print(balances)
     return render_template('index.html', title=title, my_balances=balances, symbols=symbols)
+    # return render_template('index.html', title=title,  symbols=symbols)
 
 @app.route("/buy", methods=["POST"])
 def buy():
     print(request.form)
     try: 
-        order = client.create_order(
+        order = clientPaper.create_order(
             symbol=request.form['symbol'],
             side=SIDE_BUY,
             type=ORDER_TYPE_MARKET,
@@ -54,7 +58,7 @@ def settings():
 
 @app.route("/history")
 def history():
-    candleSticks = client.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_15MINUTE, "4 Oct, 2021", "21 Oct, 2021")
+    candleSticks = clientReal.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_15MINUTE, "4 Oct, 2021", "21 Oct, 2021")
 
     processed_candlesticks = []
 

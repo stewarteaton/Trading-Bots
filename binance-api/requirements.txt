@@ -1,5 +1,6 @@
 # lightweightcharts
 python-binance
+websocket_client
 config
 TA-Lib
 numpy

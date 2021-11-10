@@ -3,7 +3,7 @@ import vectorbt as vbt
 import pandas as pd
 import datetime
 
-cerebro = bt.Cerebro()
+cerebro = bt.cerebro()
 
 # Reads the CSV file and adds column headers to it. df in the variable name stands for dataframe
 crypt_df = pd.read_csv(
