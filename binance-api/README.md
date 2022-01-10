@@ -35,8 +35,6 @@
 <h3>To convert Unix timestamp from api data</h3>
 <ul><li>https://www.unixtimestamp.com/</li></ul>
 
-<h3>Technical Analysis Libraries</h3>
-<ul><li>TA-Lib: http://mrjbq7.github.io/ta-lib/</li></ul>
 
 
 <h1>Backend</h1>
@@ -56,8 +54,14 @@
 <h3>Jinja HTML Templating</h3>
 * https://jinja.palletsprojects.com/en/3.0.x/templates/
 
+------------------------------------------------------------------------------
+</br>
+<h1>Technical Analysis Libraries</h3>
+<ul><li>TA-Lib: http://mrjbq7.github.io/ta-lib/</li></ul>
+<ul><li>Pandas-TA: https://github.com/twopirllc/pandas-ta</li></ul>
+<ul><li>TA: https://github.com/bukosabino/ta</li></ul>
 
-
+</br>
 <h1>Back Testing</h1>
 <hr>
 <h3>VectorBT</h3>

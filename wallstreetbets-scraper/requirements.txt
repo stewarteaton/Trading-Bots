@@ -1,2 +1,9 @@
 psaw
+praw
+pandas
+matplotlib
+squarify
+alpaca_trade_api
 psycopg2
+vaderSentiment
+data
