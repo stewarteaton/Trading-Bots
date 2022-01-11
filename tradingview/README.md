@@ -15,3 +15,7 @@ Instead of having to host a server that's constantly pulling stock/crypto chart 
 </br>
 
 <h1>Heroku: Hosting the App</h1>
+To push "tradingview" repo subtree of Trading Bots repo to Heroku: 
+    - git subtree push --prefix=tradingview heroku master
+
+Procfile set up  
