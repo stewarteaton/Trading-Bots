@@ -1,0 +1,24 @@
+{
+    "time": "2022-01-10T15:09:00Z",
+    "exchange": "BINANCE",
+    "ticker": "ETHUSDT",
+    "bar": {
+        "time": "2022-01-10T15:09:00Z",
+        "open": "3013.9",
+        "high": "3013.9",
+        "low": "3013.9",
+        "close": "3013.9",
+        "volume": "0.027"
+    },
+    "strategy": {
+        "position_size": 1,
+        "order_ation": "buy",
+        "order_contractas": 1,
+        "order_price": 3013.9,
+        "order_id": "ETH door",
+        "market_position": "long",
+        "market_position_size": 1,
+        "prev_market_position": "flat",
+        "prev_market_position_size": 0
+    }
+}
