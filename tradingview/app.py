@@ -24,10 +24,10 @@ clientPaper.API_URL = 'https://testnet.binance.vision/api'
 # print(balances)
 
 r = redis.from_url(env["REDIS_URL"])
-r = redis.Redis(
-    host=env['REDIS_HOST'],
-    port=env['REDIS_PORT'], 
-    password=env['REDIS_PASSWORD'])
+# r = redis.Redis(
+#     host=env['REDIS_HOST'],
+#     port=env['REDIS_PORT'], 
+#     password=env['REDIS_PASSWORD'])
 
 r.set('foo', 'bar')
 value = r.get('foo')
