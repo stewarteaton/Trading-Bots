@@ -3,3 +3,4 @@ gunicorn
 python-binance
 python-dotenv
 redis
+datetime

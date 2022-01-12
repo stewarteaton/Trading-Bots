@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import redis
 import json
-# import config
+import datetime
 from binance.client import Client
 from binance.enums import *
 
@@ -24,14 +24,14 @@ clientPaper.API_URL = 'https://testnet.binance.vision/api'
 # print(balances)
 
 r = redis.from_url(env["REDIS_URL"])
-# r = redis.Redis(
-#     host=env['REDIS_HOST'],
-#     port=env['REDIS_PORT'], 
-#     password=env['REDIS_PASSWORD'])
+# # r = redis.Redis(
+# #     host=env['REDIS_HOST'],
+# #     port=env['REDIS_PORT'], 
+# #     password=env['REDIS_PASSWORD'])
 
-r.set('foo', 'bar')
-value = r.get('foo')
-print(value)
+# r.set('foo', 'bar')
+# value = r.get('foo')
+# print(value)
 
 
 def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
@@ -39,9 +39,11 @@ def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
         print(f"sending over {order_type} - {side} {quantity} {symbol}")
         order = clientPaper.create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
         # order = clientReal.create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
-        price = float(order['fills'][0]['price'])
-        print( price)
-        print(f"{order_type} - {side} {quantity} {symbol} at ${price}")
+        price = (order['fills'][0]['price'])
+        date = datetime.datetime.now()
+        record = (f"{date}: {order_type} - {side} {quantity} {symbol} at {price}")
+        r.set(date, record)
+        print(record)
     except Exception as e:
         print("an exception occured - {}".format(e))
         return False
@@ -50,9 +52,12 @@ def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
 
 @app.route('/')
 def hello_world(): 
-    value = r.get('foo')
-    print(value)
-    return value
+    list = []
+    for key in r.scan_iter():
+       print(key)
+       print(r.get(key))
+       list.append(r.get(key))
+    return list
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
