@@ -17,5 +17,15 @@ Instead of having to host a server that's constantly pulling stock/crypto chart 
 <h1>Heroku: Hosting the App</h1>
 To push "tradingview" repo subtree of Trading Bots repo to Heroku: 
     - git subtree push --prefix=tradingview heroku master
+Attach Redis instance for local DB
+    - heroku addons:create heroku-redis:hobby-dev -a your-app-name
 
 Procfile set up  
+
+<h1>Flask</h1>
+run 2 seperate flasks (1 for local, 1 for heroku - have to set config diff)
+$ export FLASK_APP=script1.py
+$ flask run --host 0.0.0.0 --port 5000
+Open up a new terminal
+$ export FLASK_APP=script2.py
+$ flask run --host localhost --port 5001

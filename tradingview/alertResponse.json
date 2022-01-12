@@ -12,8 +12,8 @@
     },
     "strategy": {
         "position_size": 1,
-        "order_ation": "buy",
-        "order_contractas": 1,
+        "order_action": "buy",
+        "order_contracts": 1,
         "order_price": 3013.9,
         "order_id": "ETH door",
         "market_position": "long",
