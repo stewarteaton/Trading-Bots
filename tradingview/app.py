@@ -1,7 +1,7 @@
 from flask import Flask, request
 import os
 import json
-import config
+# import config
 from binance.client import Client
 from binance.clientPaper import ClientPaper
 from binance.enums import *
