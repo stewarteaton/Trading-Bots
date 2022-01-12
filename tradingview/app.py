@@ -3,13 +3,13 @@ import os
 import json
 # import config
 from binance.client import Client
-from binance.clientPaper import ClientPaper
+# from binance.clientPaper import ClientPaper
 from binance.enums import *
 
 
 app = Flask(__name__)
 
-clientPaper = ClientPaper(os.environ.get('API_KEY_PAPER'), os.environ.get('SECRET_KEY_PAPER'), tld='us')
+clientPaper = Client(os.environ.get('API_KEY_PAPER'), os.environ.get('SECRET_KEY_PAPER'), tld='us')
 # clientReal = Client(config.API_KEY, config.SECRET_KEY, tld='us')
 
 # Check min quantity required to trade
