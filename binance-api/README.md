@@ -7,7 +7,8 @@
 
 <h3>Binance Paper Trading Testnet</h3>
 <ul><li>https://testnet.binance.vision/</li></ul>
-<ul><li>Had to clone binance.client.py package and create binance.clientPaper.py with test url to use</ul></li>
+clientPaper.API_URL = 'https://testnet.binance.vision/api'
+https://algotrading101.com/learn/binance-python-api-guide/
 
 <h3>Python web-socket client</h5>
 <ul><li>https://github.com/websocket-client/websocket-client</li></ul>

@@ -3,7 +3,6 @@ from flask_cors import CORS
 import config
 import csv
 from binance.client import Client
-from binance.clientPaper import ClientPaper
 from binance.enums import *
 
 
@@ -14,7 +13,8 @@ CORS(app)
 app.secret_key = b'alvvjlkjweoiru43lkv'
 
 
-clientPaper = ClientPaper(config.API_KEY_PAPER, config.SECRET_KEY_PAPER, tld='us')
+clientPaper = Client(config.API_KEY_PAPER, config.SECRET_KEY_PAPER, tld='us')
+clientPaper.API_URL = 'https://testnet.binance.vision/api'
 clientReal = Client(config.API_KEY, config.SECRET_KEY, tld='us')
 
 
@@ -44,7 +44,7 @@ def buy():
             )
         flash("successful buy")
     except Exception as e:
-        flash(e.message, "error")
+        flash(e, "error")
 
     return redirect('/')
 
