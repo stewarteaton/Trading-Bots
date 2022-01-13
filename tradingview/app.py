@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from os import environ as env
 # load env variables
 from dotenv import load_dotenv
@@ -19,15 +19,17 @@ clientPaper.API_URL = 'https://testnet.binance.vision/api'
 # info = clientPaper.get_symbol_info('ETHUSDT')
 # print(info['filters'][2]['minQty'])
 ## Get Balances
-# account = clientPaper.get_account()
-# balances = account['balances']
-# print(balances)
+account = clientPaper.get_account()
+balances = account['balances']
 
-r = redis.from_url(env["REDIS_URL"])
-# # r = redis.Redis(
-# #     host=env['REDIS_HOST'],
-# #     port=env['REDIS_PORT'], 
-# #     password=env['REDIS_PASSWORD'])
+## Heroku 
+# r = redis.from_url(env["REDIS_URL"])
+## Local 
+r = redis.Redis(
+    host=env['MY_REDIS_HOST'],
+    port=env['MY_REDIS_PORT'], 
+    password=env['MY_REDIS_PASSWORD'],
+    decode_responses=True)
 
 # r.set('foo', 'bar')
 # value = r.get('foo')
@@ -40,8 +42,8 @@ def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
         order = clientPaper.create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
         # order = clientReal.create_order(symbol=symbol, side=side, type=order_type, quantity=quantity)
         price = (order['fills'][0]['price'])
-        date = datetime.datetime.now()
-        record = (f"{date}: {order_type} - {side} {quantity} {symbol} at {price}")
+        date = str(datetime.datetime.now())
+        record = f"{date}: {order_type} - {side} {quantity} {symbol} at {price}"
         r.set(date, record)
         print(record)
     except Exception as e:
@@ -52,12 +54,13 @@ def order(side, quantity, symbol, order_type=ORDER_TYPE_MARKET):
 
 @app.route('/')
 def hello_world(): 
-    list = []
+    title = 'View Trading Bot Executions'
+    balances = account['balances']
+    txList = []
     for key in r.scan_iter():
-       print(key)
        print(r.get(key))
-       list.append(r.get(key))
-    return list
+       txList.append(r.get(key))
+    return render_template('index.html', title=title, my_balances=balances, txs=txList)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():

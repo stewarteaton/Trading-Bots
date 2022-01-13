@@ -29,3 +29,7 @@ $ flask run --host 0.0.0.0 --port 5000
 Open up a new terminal
 $ export FLASK_APP=script2.py
 $ flask run --host localhost --port 5001
+
+
+<h1>Redis: storage</h1>
+https://app.redislabs.com/#/login

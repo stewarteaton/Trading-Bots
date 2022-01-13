@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <Title>Welcome Homosapiens</Title>
+    </head>
+
+    <body>
+        <h2>{{ title }}</h2>
+
+        <div id="balances">
+            <h2>Balances</h2>
+            <table>
+                <!-- Jinja2 loop -->
+                {% for balance in my_balances %}
+                <tr>
+                    <td>
+                        {{ balance['asset'] }}
+                    </td>
+                    <td>
+                        {{ balance['free'] }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div id="transactions">
+            <h2>Recent Bot transactions</h2>
+            <table>
+                {% for tx in txs %}
+                <tr>
+                    <td>
+                        {{ tx }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </body>
+</html>
+
